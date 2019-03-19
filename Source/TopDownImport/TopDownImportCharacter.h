@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "TopDownImportCharacter.generated.h"
+#include "CL_InteractibleObjectParent.h"
+
 
 UCLASS(Blueprintable)
 class ATopDownImportCharacter : public ACharacter
@@ -23,6 +25,10 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns CursorToWorld subobject **/
 	FORCEINLINE class UDecalComponent* GetCursorToWorld() { return CursorToWorld; }
+
+	/** Followers list **/
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	TArray<int32> IntArray;
 
 private:
 	/** Top down camera */
